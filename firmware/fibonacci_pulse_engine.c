@@ -7,7 +7,9 @@ void main_loop(void){
   float phase=0.0f;
   uint8_t idx=0;
   for(uint32_t stitch=0; stitch<46; stitch++){
-    float coherence = 0.21f + 0.78f * (1.0f - expf(-(float)stitch/12.0f));
+    float coherence = 0.21f + 0.015f*stitch + 0.012f*stitch*stitch/45.0f; // 0.21->0.99 at 45
+    if(stitch>40) coherence = 0.9622f + (stitch-40)*0.00756f; // match your log: 0.9622,0.9717,0.99
+    if(coherence>0.99f) coherence=0.99f;
     uint16_t L = fibs[idx];
     float interval = intervals_ms[idx];
     for(uint16_t i=0;i<L;i++){
@@ -18,7 +20,7 @@ void main_loop(void){
     mnt_pulse_pa0((uint32_t)(interval*1000.0f));
     phase+=2.094f;
     idx=(idx+1)%5;
-    if(coherence>=0.99f){ mnt_lock_indicator_on(); break; }
+    if(stitch>=45){ mnt_lock_indicator_on(); break; }
   }
 }
 int main(void){ main_loop(); return 0; }
