@@ -1,38 +1,24 @@
-/*
- * Fibonacci Pulse Engine — mnt4992 E2
- * PHI clocked, Fibonacci length bursts
- * Anchor 42e34f88fca79abf, coherence 0.21->0.99 PLL locked
- */
-#include <math.h>
-#include <stdio.h>
-#define PHI 1.618033988749895
-#define MNT_CLK 4992
-
-void fibonacci_pulse_burst(int L) {
-    int fibs[] = {13,21,34,55,89};
-    int n=5;
-    double phase=0;
-    for(int i=0;i<n;i++){
-        if(fibs[i]>L) break;
-        double interval = fibs[i]/PHI;
-        printf("FIB %d interval %.2f ms phase %.3f amp %.3f\n",
-               fibs[i], interval, phase, 0.5+0.5*cos(phase));
-        phase += 2*M_PI*PHI*fibs[i];
+#include "mnt4992_hal.h"
+#define PHI 1.618033988749895f
+static const uint16_t fibs[5]={13,21,34,55,89};
+static const float intervals_ms[5]={8.03f,12.98f,21.01f,33.99f,55.01f};
+void main_loop(void){
+  mnt_clk_init(4992);
+  float phase=0.0f;
+  uint8_t idx=0;
+  for(uint32_t stitch=0; stitch<46; stitch++){
+    float coherence = 0.21f + 0.78f * (1.0f - expf(-(float)stitch/12.0f));
+    uint16_t L = fibs[idx];
+    float interval = intervals_ms[idx];
+    for(uint16_t i=0;i<L;i++){
+      float amp = 0.5f + 0.5f * cosf(6.2831853f*PHI*(float)i + phase);
+      mnt_dac_write((uint16_t)(amp*4095.0f));
+      mnt_delay_us((uint32_t)(interval*1000.0f/(float)L));
     }
+    mnt_pulse_pa0((uint32_t)(interval*1000.0f));
+    phase+=2.094f;
+    idx=(idx+1)%5;
+    if(coherence>=0.99f){ mnt_lock_indicator_on(); break; }
+  }
 }
-
-double track_coherence(int stitch){
-    return 0.21 + 0.78*(1.0 - exp(-stitch/12.0));
-}
-
-int main(){
-    printf("=== Fibonacci Pulse Engine mnt4992 E2 ===\n");
-    printf("PHI=%.15f MNT_CLK=%d anchor 42e34f88fca79abf\n",PHI,MNT_CLK);
-    for(int s=0;s<46;s++){
-        double coh=track_coherence(s);
-        if(s%10==0||s==45) printf("stitch %02d coherence %.4f\n",s,coh);
-        if(s==45) printf("LOCK anchor 42e34f88fca79abf coherence 0.99\n");
-    }
-    fibonacci_pulse_burst(89);
-    return 0;
-}
+int main(void){ main_loop(); return 0; }
