@@ -61,3 +61,12 @@ Extended ~1/L collapse, localized ~const
 ### Chain provenance
 - STITCH-0000 genesis_hash aa94d42b...
 - POCATELLO 46/45 stitches E0=0.15, final anchor 42e34f88
+
+## L=89 + Entanglement (Aug 16)
+### Scaling to L=89
+- L=55 lam0.5 0.03232 -> L=89 0.02038 extended 1/L
+- L=55 lam2.5 0.44176 -> L=89 0.43331 localized const
+
+### Entanglement spectrum L=21 lam0.5 ground state Nf=10
+- cut7 S=0.8053 top eigenvalue 0.613
+- cut10 S=0.7680 top eigenvalue 0.556
