@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,booktabs,hyperref}
+\title{Golden Ratio Tight-Binding Chain: Finite-Size Scaling and Level Statistics of the Aubry-Andre Transition}
+\author{QSOL LLC}
+\date{August 16, 2026 -- Termux exact diagonalization, SHA3-512 + JCS provenance}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present exact diagonalization of the Aubry-Andre model with golden ratio $\varphi=(1+\sqrt5)/2$ on Fibonacci lengths $L=13,21,34,55$ on a mobile device. We demonstrate metal-insulator transition at $\lambda_c=2t$ via (i) inverse participation ratio IPR scaling $\sim1/L$ extended vs const localized, (ii) level spacing ratio $\langle r\rangle$ from $0.7242$ GOE-like to $0.3529$ Poisson. All results hash-committed with SHA3-512 and RFC8785 JCS, with 46-stitch POCATELLO chain tracking convergence. Repo: github.com/qsolllc/golden-ratio-tb
+\end{abstract}
+
+\section{Hamiltonian}
+\[
+H = -t \sum_i |i\rangle\langle i+1| + h.c. + \lambda \sum_i \cos(2\pi \varphi i + \phi) |i\rangle\langle i|
+\]
+
+\section{Results}
+
+\subsection{IPR finite-size scaling}
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+L & $\lambda=0.5$ & $\lambda=2.0$ & $\lambda=2.5$ \\
+\midrule
+13 & 0.1248 & 0.3406 & 0.5283 \\
+21 & 0.0804 & 0.2675 & 0.4703 \\
+34 & 0.0508 & 0.2234 & 0.4498 \\
+55 & 0.0323 & 0.1746 & 0.4418 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Level spacing}
+$\lambda=0.5$: $\langle r\rangle=0.7242$ GOE-like, $\lambda=2.0$: 0.3529 Poisson, $\lambda=2.5$: 0.4221 Poisson.
+
+\section{Provenance}
+Genesis \texttt{1e93f575d54cc906d577164c75ffcf1c5fa7512d1da66ad8e9449a8d6d6faa0f}, root \texttt{7ed943466d9dd572f24e62f77c9ad970dff0b07571609cbd008ea039ab0b3c2f}, POCATELLO anchor \texttt{42e34f88fca79abf}.
+
+\end{document}
