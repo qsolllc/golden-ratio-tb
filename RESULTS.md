@@ -42,3 +42,22 @@ Dataset hash: sha3-512:2bffb073...
 
 ## How to cite
 Tight-binding chain with golden-ratio hopping, Aubry-André potential V_n=λ cos(2π φ n), IPR localization, 2-particle exact diag, hash-chained data.
+
+## Deep analysis (Aug 16, Termux)
+
+### Level spacing ratio <r>
+- lam=0.5: 0.7242 GOE-like extended
+- lam=2.0: 0.3529 Poisson critical/localized
+- lam=2.5: 0.4221 Poisson localized
+
+### Fibonacci finite-size scaling <IPR>
+| L | lam0.5 | lam2.0 | lam2.5 |
+| 13 | 0.1248 | 0.3406 | 0.5283 |
+| 21 | 0.0804 | 0.2675 | 0.4703 |
+| 34 | 0.0508 | 0.2234 | 0.4498 |
+| 55 | 0.0323 | 0.1746 | 0.4418 |
+Extended ~1/L collapse, localized ~const
+
+### Chain provenance
+- STITCH-0000 genesis_hash aa94d42b...
+- POCATELLO 46/45 stitches E0=0.15, final anchor 42e34f88
