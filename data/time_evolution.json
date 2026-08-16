@@ -1,0 +1,68 @@
+{
+  "model": "tight_binding_golden_hopping",
+  "hamiltonian": "H = t * sum_i (|i><i+1| + h.c.), t=phi",
+  "sites": 19,
+  "hopping": 1.618033988749895,
+  "data": [
+    {
+      "step": 0,
+      "purity": 0.9999999999999998,
+      "von_neumann_entropy": 3.330669073875469e-16,
+      "sha3_512": "sha3-512:2d22e2a328d238dab288398bfcce2138f374dffbf9d9384e1f4487be6ace17c2c6edd49db6271cc346cde0c32650b4c22b7f164421128cc203933748364ad1fe"
+    },
+    {
+      "step": 1,
+      "purity": 1.0000000000000007,
+      "von_neumann_entropy": -4.440892098500627e-16,
+      "sha3_512": "sha3-512:11505ae3335ea16c6e069f8f46c3ad220d3671cb165618aee5aebb4d289daf1e23c7986e0e343c63eb152d5afa177421b9fc8dbd770e3d4cb7e62cb8c9d77d92"
+    },
+    {
+      "step": 2,
+      "purity": 1.0000000000000007,
+      "von_neumann_entropy": -8.881784197001256e-16,
+      "sha3_512": "sha3-512:3a27438443da0bc682355bc9f6e8649350e3b2d8bcdc1ede1497ffb9dd1165f4bfa240adae51c0d5767951a7ff954b4e8a2229e1eaf01c9c46b76623d924ce73"
+    },
+    {
+      "step": 3,
+      "purity": 1.0,
+      "von_neumann_entropy": -2.220446049250313e-16,
+      "sha3_512": "sha3-512:6c34dad5397b462d2ab808454f34d5edd90a4b89e0d90246842e8057d1be8a75d492c3250e5bc9250203c00e725ab4ebd8c3991ad83829fe5aa716eb0af12e31"
+    },
+    {
+      "step": 4,
+      "purity": 1.0000000000000004,
+      "von_neumann_entropy": 1.1102230246251564e-16,
+      "sha3_512": "sha3-512:801cf87d8052ca6d15dc51fa7b7d12e43795544277b6b98d2d975a5cf48a016432200e9b12955dbf762e4871fb3b2e4b216eba0b5fc80023f6384707b338787b"
+    },
+    {
+      "step": 5,
+      "purity": 1.0000000000000004,
+      "von_neumann_entropy": -0.0,
+      "sha3_512": "sha3-512:ee1f9edcd0a19ba9823ba2f3f9c694057785d8952ff8354340b49859de7c01ded7e6e56a3156b6151e6a4c97efd51fe9be45e1786cee67d44d2ecd88cb7142f4"
+    },
+    {
+      "step": 6,
+      "purity": 1.0000000000000007,
+      "von_neumann_entropy": 1.1102230246251564e-16,
+      "sha3_512": "sha3-512:ecaa543774b3f26f7565822ec37e6cbadb34e91ae347f97fad7d3f560bc4f1d890e5992e317c4fbd12702a4f00ad5cba78409bebca2576cd6da34caa0cbd038e"
+    },
+    {
+      "step": 7,
+      "purity": 1.0000000000000002,
+      "von_neumann_entropy": -8.881784197001256e-16,
+      "sha3_512": "sha3-512:fa328c011fc92eaaa335b508bbe1f6a6dbed92190b7cae6d9a2da458e5955b9422dac576d70580918698061a234d84254e4268bbcfa2db44038a81fa23e1f787"
+    },
+    {
+      "step": 8,
+      "purity": 0.9999999999999994,
+      "von_neumann_entropy": 8.881784197001248e-16,
+      "sha3_512": "sha3-512:9b2b27665acc95ef8dea48e953ce1252219ab53442abcdee31d931114309bc909982b7f9082433484c081849e7945d112f2366738bf223721afe7ce7db7978f9"
+    },
+    {
+      "step": 9,
+      "purity": 1.0000000000000004,
+      "von_neumann_entropy": -2.220446049250313e-16,
+      "sha3_512": "sha3-512:15fd955cdd1482d77b7cd8ed9060eee25616b0020fd6d99dadb22289fd95b3bb0fb1ac6ce1699d92cfab910b4a16d30f01190b9d5ee19dfc4000b24ea365e7b7"
+    }
+  ]
+}
